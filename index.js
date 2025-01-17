@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveToLocalStorage(value) {
         const savedList = JSON.parse(localStorage.getItem('list')) || [];
         savedList.push(value);
-        localStorage.setItem('TASK', JSON.stringify(savedList));
+        localStorage.setItem('list', JSON.stringify(savedList));
     }
 
     // Funkcja zapisująca nowe elementy listy
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Usuwanie elementu z localStorage
         let savedList = JSON.parse(localStorage.getItem('list')) || [];
         savedList = savedList.filter(item => item !== itemText);  // Usuń tylko ten tekst
-        localStorage.setItem('list', JSON.stringify(savedList));
+        localStorage.setItem('TASK', JSON.stringify(savedList));
     }
     // Nasłuchiwanie na kliknięcie Enter w polu tekstowym
     inputField.addEventListener('keypress', (event) => {
