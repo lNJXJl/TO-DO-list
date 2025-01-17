@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveToLocalStorage(value) {
         const savedList = JSON.parse(localStorage.getItem('list')) || [];
         savedList.push(value);
-        localStorage.setItem('list', JSON.stringify(savedList));
+        localStorage.setItem('TASK', JSON.stringify(savedList));
     }
 
     // Funkcja zapisująca nowe elementy listy
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let createList = document.createElement('div');
         createList.className = 'list';
-        createList.textContent = `list ${listCounter}: ${text}`;
+        createList.textContent = `TASK ${listCounter}: ${text}`;
 
         // Tworzenie przycisku X
         let deleteButton = document.createElement('button');
