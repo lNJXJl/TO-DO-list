@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Funkcja wczytująca dane z LocalStorage
     function loadFromLocalStorage() {
-        const savedList = JSON.parse(localStorage.getItem('list')) || [];
+        const savedList = JSON.parse(localStorage.getItem('TASK')) || [];
         listCounter = savedList.length;
 
         savedList.forEach((item, index) => {
             let createList = document.createElement('div');
-            createList.className = 'list';
+            createList.className = 'TASK';
             createList.textContent = `TASK ${index + 1}: ${item}`;
 
 
@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Funkcja zapisująca dane do LocalStorage
     function saveToLocalStorage(value) {
-        const savedList = JSON.parse(localStorage.getItem('list')) || [];
+        const savedList = JSON.parse(localStorage.getItem('TASK')) || [];
         savedList.push(value);
-        localStorage.setItem('list', JSON.stringify(savedList));
+        localStorage.setItem('TASK', JSON.stringify(savedList));
     }
 
     // Funkcja zapisująca nowe elementy listy
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listCounter++;
 
         let createList = document.createElement('div');
-        createList.className = 'list';
+        createList.className = 'TASK';
         createList.textContent = `TASK ${listCounter}: ${text}`;
 
         // Tworzenie przycisku X
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listElement.remove();
         listCounter--;
         // Usuwanie elementu z localStorage
-        let savedList = JSON.parse(localStorage.getItem('list')) || [];
+        let savedList = JSON.parse(localStorage.getItem('TASK')) || [];
         savedList = savedList.filter(item => item !== itemText);  // Usuń tylko ten tekst
         localStorage.setItem('TASK', JSON.stringify(savedList));
     }
